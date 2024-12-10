@@ -1,0 +1,8 @@
+.idea*
+*/.DS_Store
+*__pycache__*
+*.pyc
+/demo/
+/strategy_train_env/data/
+/data/
+/strategy_train_env/saved_model/
