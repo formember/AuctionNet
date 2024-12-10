@@ -193,8 +193,8 @@ Distributed under the Apache License 2.0. See `LICENSE.txt` for more information
 
 ---
 
-Shuai Dou • Yusen Huo • Kefan Su • YeShu Li • Zhengye Han • 
-Zhilin Zhang • Zongqing Lu • Chuan Yu • Jian Xu • Bo Zheng
+Shuai Dou • Yusen Huo • Zhilin Zhang • YeShu Li • Zhengye Han • Kefan Su  
+ • Zongqing Lu • Chuan Yu • Jian Xu • Bo Zheng
 
 
 ## ✉️ Contact
