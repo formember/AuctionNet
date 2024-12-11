@@ -249,7 +249,7 @@ def run_test(generate_log: bool = False,
                 )
 
         if generate_log:
-            train_data_tracker.generate_train_data(f"data/071701/071701-{episode}.csv")
+            train_data_tracker.generate_train_data(f"data/log/{episode}.csv")
 
 
     end_time = time.time()
