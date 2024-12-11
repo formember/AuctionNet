@@ -48,18 +48,18 @@ Then, each agent may win some impressions (IV), which may be exposed to users an
 
 ```
 ├── config                        # Configuration files for setting up the hyperparameters.
-├── main_test.py                  # The main entry point for running the evaluation.
-├── run                           # The core logic for executing tests.
+├── main_test.py                  # Main entry point for running evaluations.
+├── run                           # Core logic for executing tests.
 
 ├── simul_bidding_env             # Ad Auction Environment
 
-│   ├── Controller                # Module for controlling the simulation flow and logic.
+│   ├── Controller                # Module controlling the simulation flow and logic.
 │   ├── Environment               # The auction module.
 │   ├── PvGenerator               # The ad opportunity generation module.
 │   ├── Tracker                   # Tracking components for monitoring and analysis.
-│   │   ├── BiddingTracker.py     # Tracks bidding process and outcomes in the traffic granularity raw data.
-│   │   ├── PlayerAnalysis.py     # Analyzes players' strategy behavior and performance.
-│   └── strategy                  # The bidding module (official competitive agent).
+│   │   ├── BiddingTracker.py     # Tracks the bidding process and generates raw data on traffic granularity.
+│   │   ├── PlayerAnalysis.py     # Implements metrics to evaluate the performance of user-defined strategies.
+│   └── strategy                  # The bidding module (competitors’ strategies).
 
 
 ├── pre_generated_dataset         # Pre-generated dataset.
@@ -67,13 +67,13 @@ Then, each agent may win some impressions (IV), which may be exposed to users an
 
 ├── strategy_train_env            # Several baseline bid decision-making algorithms.
 
-│   ├── README_strategy_train.md  # Documentation for how to train the bidding strategy.
+│   ├── README_strategy_train.md  # Documentation on how to train the bidding strategy.
 │   ├── bidding_train_env         # Core components for training bidding strategies.
-│   │   ├── baseline              # Baseline models and strategies implementation.
+│   │   ├── baseline              # Implementation of baseline bid decision-making algorithms.
 │   │   ├── common                # Common utilities used across modules.
-│   │   ├── train_data_generator  # Reads raw data and constructs training data for model training.
-│   │   ├── offline_eval          # The components needed for offline evaluation.
-│   │   └── strategy              # Strategy prediction code for training models.
+│   │   ├── train_data_generator  # Reads raw data and constructs training datasets.
+│   │   ├── offline_eval          # Components required for offline evaluation.
+│   │   └── strategy              # Unified bidding strategy interface.
 │   ├── data                      # Directory for storing training data.
 │   ├── main                      # Main scripts for executing training processes.
 │   ├── run                       # Core logic for executing training processes.
