@@ -151,7 +151,7 @@ Refer to the baseline algorithm implementation and complete the following files.
 │   ├── bidding_train_env
 │   │   ├── baseline
 │   │   │   └── awesome_xx
-│   │   │       └──awesome_xx.py                # Implementation of model-related components.
+│   │   │       └──awesome_xx.py                # Implement model-related components.
 │   │   ├── train_data_generator
 │   │   │   └── train_data_generator.py         # Custom-built training Data generation Pipeline.
 │   │   └── strategy
@@ -186,14 +186,6 @@ python main_test.py
 The newly generated data will be stored in the /data folder.
 
 
-### Generate new dataset
-Set the hyperparameters and run the evaluation process,
-```
-config/test.gin
-GENERATE_LOG = True
-
-python main_test.py
-```
 ### Customize new auction environment
 We adhere to the programming principles of high cohesion and low coupling to encapsulate each module, making it convenient for users to modify various modules in the auction environment according to their needs.
 ```
