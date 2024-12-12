@@ -208,7 +208,7 @@ We adhere to the programming principles of high cohesion and low coupling to enc
 |                           | [TD3_BC](https://arxiv.org/pdf/2106.06860)   | ✅      |
 | Online Linear Programming | [OnlineLp](https://arxiv.org/abs/2006.16312) | ✅      |
 | Generative Model          | [Decision-Transformer](https://arxiv.org/abs/2106.01345)                     | ✅      |
-| Generative Model          | [Diffbid](https://arxiv.org/pdf/2405.16141)  | 待实现    |
+| Generative Model          | [Diffbid](https://arxiv.org/pdf/2405.16141)  | To be implemented    |
 | Other                     | Abid (fixed bid rate)                        | ✅      |
 |                           | [PID](https://arxiv.org/abs/1603.01055)      | ✅      |
 
