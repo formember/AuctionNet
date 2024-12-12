@@ -48,22 +48,6 @@ def initialize_player_agent() -> Optional['PlayerAgent']:
         sys.exit(1)
 
 
-def get_player_values(episode: int) -> Optional[List[float]]:
-    """Retrieves ground truth p-values based on the episode number.
-
-    Args:
-        episode (int): Current episode number.
-
-    Returns:
-        Optional[List[float]]: List of ground truth p-values or None if episode is invalid.
-    """
-    ground_truth = {
-        0: [0.0006, 0.0006, 0.0006, 0.0004, 0.0006, 0.0009, 0.0012, 0.0010, 0.0003, 0.0003],
-        1: [0.0006, 0.001, 0.0004, 0.0002, 0.0007, 0.0004, 0.0004, 0.0004, 0.0011, 0.0009],
-    }
-    return ground_truth.get(episode, None)
-
-
 
 
 def get_winner(slot_pit: np.ndarray) -> np.ndarray:
