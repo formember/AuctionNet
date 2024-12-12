@@ -5,14 +5,18 @@ import torch
 from torch import nn
 import torch.nn.functional as F
 from functools import partial
-from typing import  Dict, Optional
-from .types_ import *
+from typing import  Dict, Optional,List,  TypeVar, Tuple
+
+
 from .model_utils import (
     LastLayer, TransformerBlock, exists, extract, cosine_beta_schedule,
     Residual, SinusoidalPositionEmbeddings, ResnetBlock1d, PreNorm1d,
     LinearAttention1d, Downsample1d, Upsample1d, Attention1d
 )
 from einops import rearrange
+
+
+Tensor = TypeVar('torch.tensor')
 
 class DiffusionModel(nn.Module):
     """Diffusion Model for generating data."""

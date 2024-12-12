@@ -5,10 +5,11 @@ import numpy as np
 from torch import nn
 import torch.nn.functional as F
 from copy import deepcopy
-from typing import Dict, Optional
-from .types_ import *
+from typing import Dict, Optional,List, TypeVar, Tuple
+
 from .model_utils import TransformerBlock
 
+Tensor = TypeVar('torch.tensor')
 class PvModel(nn.Module):
     """PvModel for processing and predicting data."""
     def __init__(self, input_dim: int, info_dict: Dict, args, device: str = 'cpu', hidden_dims: Optional[List[int]] = None, **kwargs) -> None:
