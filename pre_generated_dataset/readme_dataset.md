@@ -32,7 +32,7 @@ https://alimama-bidding-competition.oss-cn-beijing.aliyuncs.com/share/autoBiddin
 
 
 ## Data format
-The training dataset is derived from advertising delivery data generated via the auction system where multiple advertisers compete against each other. Participants can use this dataset to recreate the historical delivery process of all advertisers across all impression opportunities. The training dataset includes 21 delivery periods. Each delivery period contains approximately 500,000 impression opportunities and is divided into 48 steps. There are 48 advertisers competing for these opportunities. The dataset consists of approximately 500 million records, with a total size of 80GB. The specific data format is as follows:
+The training dataset is derived from advertising delivery data generated via the auction system where multiple advertisers compete against each other. Participants can use this dataset to recreate the historical delivery process of all advertisers across all impression opportunities. The training dataset includes 21 delivery periods. Each delivery period contains approximately 500,000 impression opportunities and is divided into 48 steps. There are 48 advertisers competing for these opportunities. The specific data format is as follows:
 
 
 * **(c1) deliveryPeriodIndex**: Represents the index of the current delivery period.

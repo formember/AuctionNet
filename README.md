@@ -1,5 +1,5 @@
-# AuctionNet: A Novel Benchmark for Decision-Making in Uncertain and Competitive Games
-![Static Badge](https://img.shields.io/badge/license-Apache_License_2.0-red)   &nbsp;&nbsp;&nbsp;&nbsp;  ![Static Badge](https://img.shields.io/badge/version-1.0-green)&nbsp;&nbsp;&nbsp;&nbsp;  ![Static Badge](https://img.shields.io/badge/Filed-Decison_making-blue)&nbsp;&nbsp;&nbsp;&nbsp;  ![Static Badge](https://img.shields.io/badge/Organization-Alimama-purple)
+# AuctionNet: A Novel Benchmark for Decision-Making in Large-Scale Games
+![Static Badge](https://img.shields.io/badge/license-Apache_License_2.0-red)   &nbsp;&nbsp;&nbsp;&nbsp;  ![Static Badge](https://img.shields.io/badge/version-1.0-green)&nbsp;&nbsp;&nbsp;&nbsp;  ![Static Badge](https://img.shields.io/badge/filed-Decision--Making-blue)&nbsp;&nbsp;&nbsp;&nbsp;  ![Static Badge](https://img.shields.io/badge/organization-Alimama-purple)
 
 
 ---
@@ -57,7 +57,7 @@ Then, each agent may win some impressions (IV), which may be exposed to users an
 │   ├── Environment               # The auction module.
 │   ├── PvGenerator               # The ad opportunity generation module.
 │   ├── Tracker                   # Tracking components for monitoring and analysis.
-│   │   ├── BiddingTracker.py     # Tracks the bidding process and generates raw data on traffic granularity.
+│   │   ├── BiddingTracker.py     # Tracks the bidding process and generates raw data on ad opportunities granularity.
 │   │   ├── PlayerAnalysis.py     # Implements metrics to evaluate the performance of user-defined strategies.
 │   └── strategy                  # The bidding module (competitors’ strategies).
 
@@ -108,7 +108,7 @@ $ pip install -r requirements.txt
 cd strategy_train_env  # Enter the strategy_train directory
 ```
 #### Data Processing
-Run this script to convert the traffic granularity data into trajectory data required for model training.
+Run this script to convert the raw data on ad opportunities granularity into trajectory data required for model training.
 ```
 python  bidding_train_env/train_data_generator/train_data_generator.py
 ```
@@ -126,7 +126,7 @@ from .iql_bidding_strategy import IqlBiddingStrategy as PlayerBiddingStrategy
 ```
 
 #### Offline Evaluation
-Load the raw traffic granularity data to construct an offline evaluation environment for assessing the bidding strategy offline.
+Load the raw data on ad opportunities granularity to construct an offline evaluation environment for assessing the bidding strategy offline.
 ```
 python main/main_test.py
 ```

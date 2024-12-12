@@ -5,7 +5,7 @@ This is an auto-bidding strategy training module to help users implement and eva
 
 
 ## Data Processing
-Download the traffic granularity data and place it in the biddingTrainENv/data/ folder.
+Download the raw data on ad opportunities granularity and place it in the biddingTrainENv/data/ folder.
 The directory structure under data should be:
 ```
 NeurIPS_Auto_Bidding_General_Track_Baseline
@@ -35,7 +35,7 @@ NeurIPS_Auto_Bidding_General_Track_Baseline
         
 ```
 
-Run this script to convert the traffic granularity data into trajectory data required for model training.
+Run this script to convert the raw data on ad opportunities granularity into trajectory data required for model training.
 ```
 python  bidding_train_env/train_data_generator/train_data_generator.py
 ```
@@ -124,7 +124,7 @@ from .dt_bidding_strategy import DtBiddingStrategy as PlayerBiddingStrategy
 
 
 ## offline evaluation
-Load the training data to construct an offline evaluation environment for assessing the bidding strategy offline.
+Load the raw data on ad opportunities granularity to construct an offline evaluation environment for assessing the bidding strategy offline.
 ```
 python main/main_test.py
 ```
