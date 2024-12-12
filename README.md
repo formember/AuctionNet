@@ -83,23 +83,20 @@ Then, each agent may win some impressions (IV), which may be exposed to users an
 
 
 
-## 🛠️ Getting Started
-
----
-
-### 1. Create and activate conda environment
-```bash
-$ conda create -n AuctionNet python=3.9.12 pip=23.0.1
-$ conda activate AuctionNet
-```
-### 2. Install requirements
-```bash
-$ pip install -r requirements.txt
-```
 
 ## 🧑‍💻 Quickstart
 
 ---
+
+### Create and activate conda environment
+```bash
+$ conda create -n AuctionNet python=3.9.12 pip=23.0.1
+$ conda activate AuctionNet
+```
+### Install requirements
+```bash
+$ pip install -r requirements.txt
+```
 
 ### Train Strategy & Offline Evaluation
 *For detailed usage, please refer to `strategy_train_env/README_strategy_train.md`.*
@@ -203,16 +200,17 @@ We adhere to the programming principles of high cohesion and low coupling to enc
 
 ---
 
-| Category                  | Strategy             | Status |
-|---------------------------|----------------------|--------|
-| Reinforcement Learning    | IQL                  | ✅     |
-|                           | BC                   | ✅     |
-|                           | BCQ                  | ✅     |
-|                           | TD3_BC               | ✅     |
-| Online Linear Programming | OnlineLp             | ✅     |
-| Generative Model          | Decision-Transformer | ✅     |
-| Other                     | Abid (fixed bid rate)| ✅     |
-|                           | PID                  | ✅     |
+| Category                  | Strategy                                     | Status |
+|---------------------------|----------------------------------------------|--------|
+| Reinforcement Learning    | [IQL](https://arxiv.org/abs/2110.06169)      |   ✅     |
+|                           | [BC](https://arxiv.org/abs/1805.01954)       |   ✅    |
+|                           | [BCQ](https://arxiv.org/pdf/1812.02900)      | ✅      |
+|                           | [TD3_BC](https://arxiv.org/pdf/2106.06860)   | ✅      |
+| Online Linear Programming | [OnlineLp](https://arxiv.org/abs/2006.16312) | ✅      |
+| Generative Model          | [Decision-Transformer](https://arxiv.org/abs/2106.01345)                     | ✅      |
+| Generative Model          | [Diffbid](https://arxiv.org/pdf/2405.16141)  | 待实现    |
+| Other                     | Abid (fixed bid rate)                        | ✅      |
+|                           | [PID](https://arxiv.org/abs/1603.01055)      | ✅      |
 
 
 ## ✌ Contributing
@@ -233,7 +231,7 @@ The field of decision intelligence is a fascinating area, and we welcome like-mi
 
 Distributed under the Apache License 2.0. See `LICENSE.txt` for more information.
 
-## 💓 Acknowledgement
+## 💓 Reference
 
 ---
 

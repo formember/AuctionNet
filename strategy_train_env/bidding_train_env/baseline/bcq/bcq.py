@@ -1,3 +1,12 @@
+"""
+This code contains implementations that reference or adapt work from other sources.
+Acknowledgements:
+- https://github.com/sfujim/BCQ/blob/master/continuous_BCQ/BCQ.py
+- https://github.com/nicklashansen/tdmpc2
+
+The original sources have been modified and adapted for the specific needs of this project.
+"""
+
 import copy
 import numpy as np
 import torch

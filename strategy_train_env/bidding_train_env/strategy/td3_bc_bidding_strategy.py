@@ -1,11 +1,4 @@
-"""
-This code contains implementations that reference or adapt work from other sources.
-Acknowledgements:
-- https://github.com/sfujim/TD3_BC/blob/main/TD3_BC.py
-- https://github.com/nicklashansen/tdmpc2
 
-The original sources have been modified and adapted for the specific needs of this project.
-"""
 import numpy as np
 import torch
 import pickle

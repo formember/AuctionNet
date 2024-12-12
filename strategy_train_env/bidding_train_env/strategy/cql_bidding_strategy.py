@@ -1,11 +1,3 @@
-"""
-This code contains implementations that reference or adapt work from other sources.
-Acknowledgements:
-- https://github.com/aviralkumar2907/CQL
-
-The original sources have been modified and adapted for the specific needs of this project.
-"""
-
 import numpy as np
 import torch
 import pickle
