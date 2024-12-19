@@ -262,13 +262,12 @@ For any questions, please feel free to email `doushuai.ds@taobao.com`.
 
 If you find our work useful, please consider citing:
 ```
-@misc{su2024auctionnetnovelbenchmarkdecisionmaking,
-      title={AuctionNet: A Novel Benchmark for Decision-Making in Large-Scale Games}, 
-      author={Kefan Su and Yusen Huo and Zhilin Zhang and Shuai Dou and Chuan Yu and Jian Xu and Zongqing Lu and Bo Zheng},
-      year={2024},
-      eprint={2412.10798},
-      archivePrefix={arXiv},
-      primaryClass={cs.AI},
-      url={https://arxiv.org/abs/2412.10798}, 
+@inproceedings{
+su2024a,
+title={AuctionNet: A Novel Benchmark for Decision-Making in Large-Scale Games},
+author={Kefan Su and Yusen Huo and Zhilin Zhang and Shuai Dou and Chuan Yu and Jian Xu and Zongqing Lu and Bo Zheng},
+booktitle={The Thirty-eight Conference on Neural Information Processing Systems Datasets and Benchmarks Track},
+year={2024},
+url={https://arxiv.org/abs/2412.10798}
 }
 ```
