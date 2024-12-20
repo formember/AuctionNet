@@ -27,7 +27,7 @@ We note that AuctionNet is applicable not only to research on bid decision-makin
 
 - [**2024-12-14**] 🔥 The **AuctionNet-1.0** code has been officially open-sourced. We welcome everyone to give it a thumbs up and share valuable feedback.
 - [**2024-10-24**] 💫  [NeurIPS 2024 Competition: Auto-Bidding in Large-Scale Auctions](https://tianchi.aliyun.com/competition/entrance/532226) has officially ended. The competition attracted more than **1,500 teams** to participate. The **auction environment for evaluation, dataset, baseline algorithms** used in the competition are derived from this project.
-- [**2024-09-26**] 🎁 Our paper [AuctionNet](https://openreview.net/forum?id=OTjTKFk7gb#discussion) has been accepted by **NeurIPS 2024 Datasets and Benchmark Track**!
+- [**2024-09-26**] 🎁 Our paper [AuctionNet](https://arxiv.org/abs/2412.10798) has been accepted by **NeurIPS 2024 Datasets and Benchmark Track**!
 
 ## 🥁 Background
 <p align="center">
