@@ -21,7 +21,8 @@ def run_dt():
 def train_model():
     state_dim = 16
 
-    replay_buffer = EpisodeReplayBuffer(16, 1, "./data/trajectory/trajectory_data.csv")
+    # replay_buffer = EpisodeReplayBuffer(16, 1, "./data/trajectory/trajectory_data.csv")
+    replay_buffer = EpisodeReplayBuffer(16, 1, "./data/traffic/training_data_rlData_folder/training_data_all-rlData.csv")
     save_normalize_dict({"state_mean": replay_buffer.state_mean, "state_std": replay_buffer.state_std},
                         "saved_model/DTtest")
     logger.info(f"Replay buffer size: {len(replay_buffer.trajectories)}")
