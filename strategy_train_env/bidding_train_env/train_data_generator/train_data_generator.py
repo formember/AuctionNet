@@ -38,6 +38,21 @@ class TrainDataGenerator:
         combined_dataframe.to_csv(combined_dataframe_path, index=False)
         print("整合多天训练数据成功；保存至:", combined_dataframe_path)
 
+
+        # training_data_list = []
+        # for day in range(7,21):
+        #     df = pd.read_csv(f"./data/traffic/training_data_rlData_folder/period-{day}-rlData.csv")
+        #     training_data_list.append(df)
+        # test_data_list = []
+        # for day in range(21,28):
+        #     df = pd.read_csv(f"./data/traffic/training_data_rlData_folder/period-{day}-rlData.csv")
+        #     test_data_list.append(df)
+        # training_data = pd.concat(training_data_list, axis=0, ignore_index=True)
+        # test_data = pd.concat(test_data_list, axis=0, ignore_index=True)
+        # training_data.to_csv("./data/traffic/training_data_rlData_folder/training_data-rlData.csv", index=False)
+        # test_data.to_csv("./data/traffic/training_data_rlData_folder/test_data-rlData.csv", index=False)
+
+
     def _generate_train_data(self, df):
         """
         Construct a DataFrame in reinforcement learning format based on the raw data.

@@ -19,7 +19,7 @@ def train_cql_model():
     """
     Train the CQL model.
     """
-    train_data_path = "./data/traffic/training_data_rlData_folder/training_data_all-rlData.csv"
+    train_data_path = "./data/traffic/training_data_rlData_folder/training_data-rlData.csv"
     training_data = pd.read_csv(train_data_path)
 
     def safe_literal_eval(val):
@@ -69,7 +69,7 @@ def add_to_replay_buffer(replay_buffer, training_data, is_normalize):
             replay_buffer.push(np.array(state), np.array([action]), np.array([reward]), np.zeros_like(state),
                                np.array([done]))
 
-def train_model_steps(model, replay_buffer, step_num=100, batch_size=100):
+def train_model_steps(model, replay_buffer, step_num=10000, batch_size=100):
     for i in range(step_num):
         if i==8000:
             pass

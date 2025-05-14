@@ -49,7 +49,7 @@ class TestDataLoader:
             dict: A dictionary with grouped data.
 
         """
-        grouped_data = self.raw_data.sort_values('timeStepIndex').groupby(['deliveryPeriodIndex', 'advertiserNumber'])
+        grouped_data = self.raw_data.sort_values('timeStepIndex').groupby(['deliveryPeriodIndex', 'advertiserNumber','budget', 'CPAConstraint'])
         data_dict = {key: group for key, group in grouped_data}
         return list(data_dict.keys()), data_dict
 

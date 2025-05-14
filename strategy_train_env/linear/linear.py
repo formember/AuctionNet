@@ -6,7 +6,7 @@ from multiprocessing import Pool
 
 # 读取数据
 def process_date(date):
-    datafile = f"./data/final/online_data/aigb-period-{date}.csv_0.csv"
+    datafile = f"./data/splited_data/period-{date}_0.csv"
     print(datafile)
     df = pd.read_csv(datafile)
     df['x'] = np.nan
@@ -24,7 +24,7 @@ def process_date(date):
         C = []
         for name, group in groups:
             V.append(group['pValue'].values)
-            C.append(group['3WinningBid'].values)
+            C.append(group['leastWinningCost'].values)
 
         # 创建问题实例（最大化）
         prob = pulp.LpProblem("Maximize Value", pulp.LpMaximize)
@@ -81,9 +81,9 @@ def process_date(date):
         print("CPA:", sumsum / (pulp.value(prob.objective) + 1e-10))
         resultset[advertiserNumber] = [sumsum,pulp.value(prob.objective),sumsum / (pulp.value(prob.objective) + 1e-10)]
     
-        with open(f"./data/pulp3/period-{date}.txt",'w') as f:
+        with open(f"./data/pulp/period-{date}.txt",'w') as f:
             f.write(str(resultset))
-    df.to_csv(f"./data/pulp3/period-{date}.csv", index=False)
+    df.to_csv(f"./data/pulp/period-{date}.csv", index=False)
     del df
     
     
