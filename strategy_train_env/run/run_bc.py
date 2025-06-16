@@ -30,7 +30,7 @@ def train_model():
     train BC model
     """
 
-    train_data_path = "./data/traffic/training_data_rlData_folder/training_data_all-rlData.csv"
+    train_data_path = "./data/traffic/training_data_rlData_folder/training_data_without7-rlData.csv"
     training_data = pd.read_csv(train_data_path)
 
     def safe_literal_eval(val):
@@ -59,9 +59,9 @@ def train_model():
     print(len(replay_buffer.memory))
 
     logger.info(f"Replay buffer size: {len(replay_buffer.memory)}")
-
-    model = BC(dim_obs=state_dim)
-    step_num = 20000
+    step_num = 10000
+    model = BC(dim_obs=state_dim,hidden_size=256,total_training_steps=step_num)
+    
     batch_size = 100
     for i in range(step_num):
         states, actions, _, _, _ = replay_buffer.sample(batch_size)

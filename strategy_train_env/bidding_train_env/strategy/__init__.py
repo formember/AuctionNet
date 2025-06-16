@@ -1,8 +1,19 @@
 # from .player_bidding_strategy import PlayerBiddingStrategy as PlayerBiddingStrategy
 # from .iql_bidding_strategy import IqlBiddingStrategy as PlayerBiddingStrategy
 # from .bc_bidding_strategy import BcBiddingStrategy as PlayerBiddingStrategy
+# from .bc_adjust_alpha_bidding_strategy import BcBiddingStrategy as PlayerBiddingStrategy
+# from .bc_adjust_alpha_feature_bidding_strategy import BcBiddingStrategy as PlayerBiddingStrategy
+from .bc_spline_bidding_strategy import BcBiddingStrategy as PlayerBiddingStrategy
+# from .bc_adjust_alpha_feature_coef_bidding_strategy import BcBiddingStrategy as PlayerBiddingStrategy
+# from .bc_expert_bidding_strategy import BcBiddingStrategy as PlayerBiddingStrategy
+# from .bc_adjust_alpha_origin_feature_bidding_strategy import BcBiddingStrategy as PlayerBiddingStrategy
 # from .onlinelp_bidding_strategy import OnlineLpBiddingStrategy as PlayerBiddingStrategy
-from .dt_bidding_strategy import DtBiddingStrategy as PlayerBiddingStrategy
+# from .dt_bidding_strategy import DtBiddingStrategy as PlayerBiddingStrategy
+# from .dt_bidding_strategy_gen_trajectory import DtBiddingStrategy as PlayerBiddingStrategy  
+# from .dt_constraint_bidding_strategy import DtBiddingStrategy as PlayerBiddingStrategy
+# from .dt_adjust_alpha_bidding_strategy import DTBiddingStrategy as PlayerBiddingStrategy
+# from .dt_adjust_alpha_feature_bidding_strategy import DTBiddingStrategy as PlayerBiddingStrategy
+# from .dt_adjust_alpha_origin_feature_bidding_strategy import DtBiddingStrategy as PlayerBiddingStrategy
 # from .bcq_bidding_strategy import BcqBiddingStrategy as PlayerBiddingStrategy
 # from .cql_bidding_strategy import CqlBiddingStrategy as PlayerBiddingStrategy
 # from .td3_bc_bidding_strategy import TD3_BCBiddingStrategy as PlayerBiddingStrategy

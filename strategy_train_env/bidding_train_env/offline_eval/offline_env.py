@@ -6,7 +6,7 @@ class OfflineEnv:
     Simulate an advertising bidding environment.
     """
 
-    def __init__(self, min_remaining_budget: float = 0.1):
+    def __init__(self, min_remaining_budget: float = 0.01):
         """
         Initialize the simulation environment.
         :param min_remaining_budget: The minimum remaining budget allowed for bidding advertiser.
@@ -26,7 +26,7 @@ class OfflineEnv:
         """
         tick_status = bids >= leastWinningCosts
         tick_cost = leastWinningCosts * tick_status
-        values = np.random.normal(loc=pValues, scale=pValueSigmas)
+        values = np.random.normal(loc=pValues, scale=0)
         values = values*tick_status
         tick_value = np.clip(values,0,1)
         tick_conversion = np.random.binomial(n=1, p=tick_value)

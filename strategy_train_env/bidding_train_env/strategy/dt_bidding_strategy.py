@@ -15,7 +15,7 @@ class DtBiddingStrategy(BaseBiddingStrategy):
     Decision-Transformer-PlayerStrategy
     """
 
-    def __init__(self, budget=100, name="Decision-Transformer-PlayerStrategy", cpa=2, category=1):
+    def __init__(self, day=0,id=0,budget=100, name="Decision-Transformer-PlayerStrategy", cpa=2, category=1):
         super().__init__(budget, name, cpa, category)
 
         file_name = os.path.dirname(os.path.realpath(__file__))
@@ -27,7 +27,7 @@ class DtBiddingStrategy(BaseBiddingStrategy):
         with open(picklePath, 'rb') as f:
             normalize_dict = pickle.load(f)
         self.model = DecisionTransformer(state_dim=16, act_dim=1, state_mean=normalize_dict["state_mean"],
-                                         state_std=normalize_dict["state_std"],target_return=0)
+                                         state_std=normalize_dict["state_std"],target_return=30)
         self.model.load_net(model_path)
 
     def reset(self):

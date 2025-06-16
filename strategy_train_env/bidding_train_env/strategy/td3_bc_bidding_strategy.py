@@ -96,7 +96,7 @@ class TD3_BCBiddingStrategy(BaseBiddingStrategy):
             [len(historyBid[i]) for i in range(max(0, timeStepIndex - 3), timeStepIndex)]) if historyBid else 0
 
         test_state = np.array([
-            time_left, budget_left, historical_bid_mean, last_three_bid_mean,
+            self.cpa/130.0, self.budget / 4850.0, time_left, budget_left, historical_bid_mean, last_three_bid_mean,
             historical_LeastWinningCost_mean, historical_pValues_mean, historical_conversion_mean,
             historical_xi_mean, last_three_LeastWinningCost_mean, last_three_pValues_mean,
             last_three_conversion_mean, last_three_xi_mean,

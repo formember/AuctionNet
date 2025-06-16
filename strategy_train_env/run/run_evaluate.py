@@ -5,7 +5,7 @@ from bidding_train_env.strategy import PlayerBiddingStrategy
 from bidding_train_env.offline_eval.test_dataloader import TestDataLoader
 from bidding_train_env.offline_eval.offline_env import OfflineEnv
 import csv
-
+import os
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -28,20 +28,20 @@ def run_test():
     offline evaluation
     """
     average_score = 0
+    
     # Add column names to the CSV file
-    agent = PlayerBiddingStrategy(budget=0, cpa=0)
-    with open(f'{agent.name}-evaluation_results.csv', mode='a', newline='') as file:
-        writer = csv.writer(file)
-        writer.writerow(['Day', 'Id', 'Budget', 'CPAconstraint', 'Total-Reward', 'Total-Cost', 'CPA-Real', 'Score'])
-    for day in range(21,28):
+    agent = PlayerBiddingStrategy(budget=0, cpa=0,day=0, id=0, category=0)
+    if not os.path.exists(f'{agent.name}-evaluation_results_budget.csv'):
+        with open(f'{agent.name}-evaluation_results_budget.csv', mode='a', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow(['Day', 'Id', 'Budget', 'CPAconstraint', 'Total-Reward', 'Total-Cost', 'CPA-Real', 'Score'])
+    for day in range(21,22):
         data_loader = TestDataLoader(file_path=f'./data/traffic/period-{day}.csv')
         keys, test_dict = data_loader.keys, data_loader.test_dict
         for key in keys:
             env = OfflineEnv()
-            agent = PlayerBiddingStrategy(budget=key[2], cpa=key[3])
-            print(agent.name)
-
-            
+            agent = PlayerBiddingStrategy(day = day, id = key[1], budget=key[2] ,  cpa=key[3],category=key[4])
+            print(agent.name,key[1])
             num_timeStepIndex, pValues, pValueSigmas, leastWinningCosts = data_loader.mock_data(key)
             rewards = np.zeros(num_timeStepIndex)
             history = {
@@ -67,7 +67,7 @@ def run_test():
                                         history["historyBids"],
                                         history["historyAuctionResult"], history["historyImpressionResult"],
                                         history["historyLeastWinningCost"])
-
+                
                 tick_value, tick_cost, tick_status, tick_conversion = env.simulate_ad_bidding(pValue, pValueSigma, bid,
                                                                                             leastWinningCost)
 
@@ -108,7 +108,7 @@ def run_test():
             logger.info(f'Score: {score}')
 
             # Save the results to a CSV file
-            with open(f'{agent.name}-evaluation_results.csv', mode='a', newline='') as file:
+            with open(f'{agent.name}-evaluation_results_budget.csv', mode='a', newline='') as file:
                 writer = csv.writer(file)
                 writer.writerow([day, key[1], key[2], key[3], all_reward, all_cost, cpa_real, score])
             average_score += score

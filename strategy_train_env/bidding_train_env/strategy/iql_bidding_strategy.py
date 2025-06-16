@@ -10,7 +10,7 @@ class IqlBiddingStrategy(BaseBiddingStrategy):
     IQL Strategy
     """
 
-    def __init__(self, budget=100, name="Iql-PlayerStrategy", cpa=2, category=1):
+    def __init__(self, day=0,id=0,budget=100, name="Iql-PlayerStrategy", cpa=2, category=1):
         super().__init__(budget, name, cpa, category)
 
         file_name = os.path.dirname(os.path.realpath(__file__))

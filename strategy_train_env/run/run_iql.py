@@ -19,7 +19,7 @@ def train_iql_model():
     """
     Train the IQL model.
     """
-    train_data_path = "./data/traffic/training_data_rlData_folder/training_data_all-rlData.csv"
+    train_data_path = "./data/traffic/training_data_rlData_folder/training_data_without7-rlData.csv"
     training_data = pd.read_csv(train_data_path)
 
     def safe_literal_eval(val):
@@ -71,7 +71,7 @@ def add_to_replay_buffer(replay_buffer, training_data, is_normalize):
                                np.array([done]))
 
 
-def train_model_steps(model, replay_buffer, step_num=20000, batch_size=100):
+def train_model_steps(model, replay_buffer, step_num=10000, batch_size=100):
     for i in range(step_num):
         states, actions, rewards, next_states, terminals = replay_buffer.sample(batch_size)
         q_loss, v_loss, a_loss = model.step(states, actions, rewards, next_states, terminals)

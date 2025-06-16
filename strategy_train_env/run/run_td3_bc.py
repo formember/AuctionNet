@@ -20,27 +20,38 @@ def train_td3_bc_model():
     """
     Train the td3_bc model.
     """
-    train_data_path = "./data/traffic/training_data_rlData_folder/training_data_all-rlData.csv"
+    train_data_path = "./data/subopt_rl_data/period-7-rlData_fill_action.csv"
     training_data = pd.read_csv(train_data_path)
 
     def safe_literal_eval(val):
         if pd.isna(val):
             return val  # 如果是NaN，返回NaN
         try:
-            return ast.literal_eval(val)
+            return list(ast.literal_eval(val))
         except (ValueError, SyntaxError):
-            print(ValueError)
-            return val  # 如果解析出错，返回原值
-
+            val = val.replace(" ", ",")  # 将"nan"替换为"0"
+            return list(ast.literal_eval(val))
+        
+    def add_feature(row):
+        if not isinstance(row["next_state"], list):
+            return row["next_state"]
+        else:
+            # print(row["next_state"])
+            return [row["CPAConstraint"]/130.0, row["budget"]/4850.0] + row["next_state"][:]
     # 使用apply方法应用上述函数
     training_data["state"] = training_data["state"].apply(safe_literal_eval)
     training_data["next_state"] = training_data["next_state"].apply(safe_literal_eval)
+    # Insert CPAConstraint and budget into the state
+    training_data["state"] = training_data.apply(
+        lambda row: [row["CPAConstraint"]/130.0, row["budget"]/4850.0] + row["state"][:], axis=1
+    )
+    # print(training_data["next_state"].iloc[0])
+    training_data["next_state"] = training_data.apply(add_feature, axis=1)
     STATE_DIM = len(training_data['state'].iloc[0])
-
     is_normalize = True
     if is_normalize:
-        normalize_dic = normalize_state(training_data, STATE_DIM, normalize_indices=[13, 14, 15])
-        training_data['reward'] = normalize_reward(training_data, "reward_continuous")
+        normalize_dic = normalize_state(training_data, STATE_DIM, normalize_indices=[15, 16, 17])
+        training_data['reward'] = normalize_reward(training_data, "reward")
         save_normalize_dict(normalize_dic, "saved_model/TD3_bctest")
 
     # Build replay buffer
@@ -70,7 +81,7 @@ def add_to_replay_buffer(replay_buffer, training_data, is_normalize):
             replay_buffer.push(np.array(state), np.array([action]), np.array([reward]), np.zeros_like(state),
                                np.array([done]))
 
-def train_model_steps(model, replay_buffer, step_num=100, batch_size=100):
+def train_model_steps(model, replay_buffer, step_num=1000, batch_size=100):
     for i in range(step_num):
         states, actions, rewards, next_states, terminals = replay_buffer.sample(batch_size)
         q_loss, a_loss = model.step(states, actions, rewards, next_states, terminals)

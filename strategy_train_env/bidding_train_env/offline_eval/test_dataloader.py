@@ -20,8 +20,7 @@ class TestDataLoader:
 
         """
         self.file_path = file_path
-        self.raw_data_path = os.path.join(os.path.dirname(file_path), "raw_data.pickle")
-        self.raw_data = self._get_raw_data()
+        self.raw_data = pd.read_csv(self.file_path)
         self.keys, self.test_dict = self._get_test_data_dict()
 
     def _get_raw_data(self):
@@ -49,7 +48,7 @@ class TestDataLoader:
             dict: A dictionary with grouped data.
 
         """
-        grouped_data = self.raw_data.sort_values('timeStepIndex').groupby(['deliveryPeriodIndex', 'advertiserNumber','budget', 'CPAConstraint'])
+        grouped_data = self.raw_data.sort_values('timeStepIndex').groupby(['deliveryPeriodIndex', 'advertiserNumber','budget', 'CPAConstraint',"advertiserCategoryIndex"])
         data_dict = {key: group for key, group in grouped_data}
         return list(data_dict.keys()), data_dict
 

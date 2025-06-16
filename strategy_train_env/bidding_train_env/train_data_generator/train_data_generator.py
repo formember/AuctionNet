@@ -18,39 +18,35 @@ class TrainDataGenerator:
         self.training_data_path = self.file_folder_path + "/" + "training_data_rlData_folder"
 
     def batch_generate_train_data(self):
-        os.makedirs(self.training_data_path, exist_ok=True)
-        csv_files = glob.glob(os.path.join(self.file_folder_path, '*.csv'))
-        print(csv_files)
-        training_data_list = []
-        for csv_path in csv_files:
-            print("开始处理文件：", csv_path)
-            df = pd.read_csv(csv_path)
-            df_processed = self._generate_train_data(df)
-            csv_filename = os.path.basename(csv_path)
-            trainData_filename = csv_filename.replace('.csv', '-rlData.csv')
-            trainData_path = os.path.join(self.training_data_path, trainData_filename)
-            df_processed.to_csv(trainData_path, index=False)
-            training_data_list.append(df_processed)
-            del df, df_processed
-            print("处理文件成功：", csv_path)
-        combined_dataframe = pd.concat(training_data_list, axis=0, ignore_index=True)
-        combined_dataframe_path = os.path.join(self.training_data_path, "training_data_all-rlData.csv")
-        combined_dataframe.to_csv(combined_dataframe_path, index=False)
-        print("整合多天训练数据成功；保存至:", combined_dataframe_path)
-
-
+        # os.makedirs(self.training_data_path, exist_ok=True)
+        # csv_files = glob.glob(os.path.join(self.file_folder_path, '*.csv'))
+        # print(csv_files)
         # training_data_list = []
-        # for day in range(7,21):
-        #     df = pd.read_csv(f"./data/traffic/training_data_rlData_folder/period-{day}-rlData.csv")
-        #     training_data_list.append(df)
-        # test_data_list = []
-        # for day in range(21,28):
-        #     df = pd.read_csv(f"./data/traffic/training_data_rlData_folder/period-{day}-rlData.csv")
-        #     test_data_list.append(df)
-        # training_data = pd.concat(training_data_list, axis=0, ignore_index=True)
-        # test_data = pd.concat(test_data_list, axis=0, ignore_index=True)
-        # training_data.to_csv("./data/traffic/training_data_rlData_folder/training_data-rlData.csv", index=False)
-        # test_data.to_csv("./data/traffic/training_data_rlData_folder/test_data-rlData.csv", index=False)
+        # for csv_path in csv_files:
+        #     print("开始处理文件：", csv_path)
+        #     df = pd.read_csv(csv_path)
+        #     df_processed = self._generate_train_data(df)
+        #     csv_filename = os.path.basename(csv_path)
+        #     trainData_filename = csv_filename.replace('.csv', '-rlData.csv')
+        #     trainData_path = os.path.join(self.training_data_path, trainData_filename)
+        #     df_processed.to_csv(trainData_path, index=False)
+        #     training_data_list.append(df_processed)
+        #     del df, df_processed
+        #     print("处理文件成功：", csv_path)
+        # combined_dataframe = pd.concat(training_data_list, axis=0, ignore_index=True)
+        # combined_dataframe_path = os.path.join(self.training_data_path, "training_data_all-rlData.csv")
+        # combined_dataframe.to_csv(combined_dataframe_path, index=False)
+        # print("整合多天训练数据成功；保存至:", combined_dataframe_path)
+
+
+        training_data_list = []
+        for day in range(7,21):
+            if day % 7 == 0:
+                continue
+            df = pd.read_csv(f"./data/traffic/training_data_rlData_folder/period-{day}-rlData.csv")
+            training_data_list.append(df)
+        training_data = pd.concat(training_data_list, axis=0, ignore_index=True)
+        training_data.to_csv("./data/traffic/training_data_rlData_folder/training_data_without7-rlData.csv", index=False)
 
 
     def _generate_train_data(self, df):

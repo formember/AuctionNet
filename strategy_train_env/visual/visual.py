@@ -74,7 +74,7 @@ def cpa_exceedance(data):
 def get_score(data):
     print(np.mean(data['Score'].values))
 
-data = pandas.read_csv('./Decision-Transformer-PlayerStrategy-evaluation_results.csv')
+data = pandas.read_csv('./temp.csv')
 get_score(data)
 
 
